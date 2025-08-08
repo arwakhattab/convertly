@@ -33,25 +33,7 @@ src/
 
 ## 🚀 API Endpoints
 
-### 1. **Health Check**
-**GET** `/health`  
-Response:
-```json
-{ "status": "Unit Converter API is up and running" }
-```
-
----
-
-### 2. **List Categories**
-**GET** `/categories`  
-Response:
-```json
-["temperature", "length", "weight", "time"]
-```
-
----
-
-### 3. **Convert Units**
+### 1. **Convert Units**
 **POST** `/convert`  
 **Request Body:**
 ```json
@@ -71,6 +53,55 @@ Response:
   "formula": "(100°C x 9/5) + 32 = 212°F",
   "status": "success"
 }
+```
+---
+
+### 2. **List Categories**
+**GET** `/categories`  
+Response:
+```json
+["temperature", "length", "weight", "time"]
+```
+
+---
+
+### 3. **List Units for a Category**
+**GET** `/units?category=temperature`  
+Returns the supported units for the given category.
+
+Example request:
+```
+GET /units?category=temperature
+```
+
+Example response:
+```json
+["celsius", "fahrenheit", "kelvin"]
+```
+
+---
+
+### 4. **Sample Payload**
+**GET** `/sample-payload`  
+Returns a sample request body to help developers test the conversion endpoint.
+
+Example response:
+```json
+{
+  "category": "temperature",
+  "fromUnit": "celsius",
+  "toUnit": "fahrenheit",
+  "value": 100
+}
+```
+
+---
+
+### 5. **Health Check**
+**GET** `/health`  
+Response:
+```json
+{ "status": "Unit Converter API is up and running" }
 ```
 
 ---
